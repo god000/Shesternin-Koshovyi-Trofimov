@@ -25,11 +25,11 @@ int main(void) {
     *GPIOx_CRL = 0x00300000; // only turn on A5 as output
     char koshovyi[] = {'-', ' ', '*', ' ', '-', '-', '-', ' ', '*', '*', '*', '-', ' ', '-', '*', '-', '-', ' ', '-',
                       '*', '-', ' ', '-', '-', '-', ' ', '*', '*', '*', '-'};
-    int length = sizeof(novykov) / sizeof(char);
+    int length = sizeof(koshovyi) / sizeof(char);
     int j = 0;
     for (;; j++) {
         *GPIOx_ODR = 0x00000000;
-        char element = novykov[j % length];
+        char element = koshovyi[j % length];
         if (element == '*') {
             *GPIOx_ODR = 0x00000020;
             delay(150);
